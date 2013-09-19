@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Comment";
+}
+@model Lesson02.Models.Comment
+
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Person.FirstName)
+    @Html.TextBoxFor(m => m.Person.FirstName)<br />
+    
+    @Html.LabelFor(m => m.Person.LastName)
+    @Html.TextBoxFor(m => m.Person.LastName)<br />
+
+    @Html.LabelFor(m => m.Body)
+    @Html.TextAreaFor(m => m.Body)
+
+    
+    @Html.LabelFor(m => m.Countries)
+    @Html.DropDownListFor(m => m.Country, new SelectList(Model.Countries, "Name", "Name"))
+    <input type="submit"/>
+}

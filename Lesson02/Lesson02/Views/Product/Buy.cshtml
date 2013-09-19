@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Buy";
+}
+
+@model Lesson02.Models.Person
+
+
+@using (Html.BeginForm("buy", "Product"))
+{
+    @Html.TextBoxFor(m => m.FirstName)
+    @Html.ValidationMessageFor(m => m.FirstName)
+
+    @Html.TextBoxFor(m => m.LastName)
+    @Html.ValidationMessageFor(m => m.LastName)
+    <input type="submit"/>
+}

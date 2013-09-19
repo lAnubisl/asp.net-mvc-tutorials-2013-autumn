@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/_PetsLayout.cshtml";
+    ViewBag.Title = "Cats";
+}
+
+@model System.Collections.ObjectModel.Collection<Lesson01.Models.Cat>
+
+
+@section Anything
+{
+    <p>Anything</p>
+}
+
+<h2>Cats</h2>
+@foreach (var cat in Model)
+{
+
+    <p>
+        Hello My Name Is @cat.Name
+        <br />
+        This is my Photo:
+        <br />
+        <img src="@Url.Content("/Images/" + cat.Name + ".jpg")" />
+    </p>
+}
+
+

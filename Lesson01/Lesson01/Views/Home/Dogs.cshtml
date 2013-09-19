@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/_PetsLayout.cshtml";
+}
+@model System.Collections.ObjectModel.Collection<Lesson01.Models.Dog>
+
+
+<h2>Dogs</h2>
+@foreach (var dog in Model)
+{
+
+    <p>
+        Hello My Name Is @dog.Name
+        <br />
+        This is my Photo:
+        <br />
+        <img src="@Url.Content("/Images/" + dog.Name + ".jpg")" />
+    </p>
+}
