@@ -1,0 +1,44 @@
+﻿@model Lesson03.Models.MessageModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Lesson 03</title>
+    </head>
+    <body>
+        <div>
+            <table style="border: 1px solid black;">
+                <tr>
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        Message
+                    </td>
+                </tr>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @item.Email
+                        </td>
+                        <td>
+                            @item.Message                        
+                        </td>
+                    </tr>
+                }
+            </table>
+            <form action="" method="POST">
+                @Html.TextBoxFor(m => m.PostModel.Email)
+                @Html.ValidationMessageFor(m => m.PostModel.Email)
+                @Html.TextAreaFor(m => m.PostModel.Message)
+                <input type="submit"/>
+            </form>
+        </div>
+    </body>
+</html>
