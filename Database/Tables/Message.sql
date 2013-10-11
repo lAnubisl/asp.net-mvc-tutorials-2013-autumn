@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Message]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1, 1), 
+    [Email] NVARCHAR(256) NOT NULL, 
+    [Message] NVARCHAR(MAX) NOT NULL
+)
