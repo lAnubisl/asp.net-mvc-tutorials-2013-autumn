@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.RouteLink("My new post", "PostSeoURL", new { seoURL = "i-know-what-you-did-last-summer" })
+
+@for (int i = 1; i < 10; i++)
+{
+    @Html.ActionLink("My new post " + i, "Index", "Post", new { seoURL = "i-know-what-you-did-last-summer-" + i }, new { style = "color:green;" })
+    @:<br />
+}
+
+
+@
+
+<a href="Post/i-know-what-you-did-last-summer" style="color: red;">sdfdf</a>
