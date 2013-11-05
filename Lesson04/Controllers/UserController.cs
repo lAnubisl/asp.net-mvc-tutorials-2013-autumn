@@ -20,6 +20,7 @@ namespace Lesson04.Controllers
         [HttpPost]
         public ActionResult Login(string username)
         {
+            var len = username.Length;
             RegisterAuthCookie();
             return View();
         }

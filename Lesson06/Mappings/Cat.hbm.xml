@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Lesson06" assembly="Lesson06">
+  <class name="Cat" table="Cat">
+    <id name="Id" unsaved-value="0">
+      <column name="Id" not-null="true" />
+      <generator class="identity"/>
+    </id>
+    <property name="Color" />
+    <property name="Age" />
+  </class>
+</hibernate-mapping>
