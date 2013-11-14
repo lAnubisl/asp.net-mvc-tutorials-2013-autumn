@@ -6,8 +6,8 @@
     <DeployScriptFileName>Database.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=d54fdddc-1d20-49c7-a581-a26d00c3b774.sqlserver.sequelizer.com;User ID=paapjsljuzdzbysq;Pooling=False</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
-    <ScriptDatabaseOptions>True</ScriptDatabaseOptions>
-    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <ScriptDatabaseOptions>False</ScriptDatabaseOptions>
+    <BlockOnPossibleDataLoss>False</BlockOnPossibleDataLoss>
     <CreateNewDatabase>False</CreateNewDatabase>
     <DropObjectsNotInSource>True</DropObjectsNotInSource>
   </PropertyGroup>

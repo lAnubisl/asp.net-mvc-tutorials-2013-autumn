@@ -17,25 +17,9 @@ namespace Lesson06.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            // Создаём коллекцию настроек
-            Dictionary<string, string> configurationSettings = new Dictionary<string, string>();
-            configurationSettings.Add(NHibernate.Cfg.Environment.ConnectionString, SysCfg.ConfigurationManager.ConnectionStrings["default"].ConnectionString);
-            configurationSettings.Add(NHibernate.Cfg.Environment.Dialect, typeof(NHibernate.Dialect.MsSql2012Dialect).FullName);
-
-            // Создаём конфигурацию фабрики сессии NHibernate
-            Configuration configuration = new Configuration();
-
-            // Устанавливаем настройки
-            configuration.SetProperties(configurationSettings);
-
-            // Указываем сборку, в которой хранятся мапиинги NHibernate
-            configuration.AddAssembly(Assembly.GetExecutingAssembly());
-
-            // Создаём фабрику сессий
-            ISessionFactory sessionFactory = configuration.BuildSessionFactory();
 
             // Открываем сессию
-            ISession session = sessionFactory.OpenSession();
+            ISession session = MvcApplication.GetSession();
 
             // Создаём кота
             Cat cat = new Cat();
