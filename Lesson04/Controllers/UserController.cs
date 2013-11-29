@@ -25,9 +25,9 @@ namespace Lesson04.Controllers
             return View();
         }
 
-        private void RegisterAuthCookie()
+        private void RegisterAuthCookie(long userId)
         {
-            var ticket = new FormsAuthenticationTicket("Alex", true, 3600);
+            var ticket = new FormsAuthenticationTicket(userId.ToString(), true, 3600);
             var hashCookies = FormsAuthentication.Encrypt(ticket);
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hashCookies) { Expires = DateTime.Now.AddYears(20) };
             Response.Cookies.Add(cookie);

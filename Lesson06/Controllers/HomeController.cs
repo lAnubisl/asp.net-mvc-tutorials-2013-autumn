@@ -17,7 +17,6 @@ namespace Lesson06.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-
             // Открываем сессию
             ISession session = MvcApplication.GetSession();
 
@@ -31,10 +30,6 @@ namespace Lesson06.Controllers
 
             // Загружаем всех котов
             IList<Cat> cats = session.Query<Cat>().ToList();
-
-            // Закрываем и освобождаем сессию
-            session.Close();
-            session.Dispose();
 
             // Возвращаем котов на страницу
             return View(cats);

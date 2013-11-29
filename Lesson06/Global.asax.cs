@@ -4,7 +4,6 @@ using NHibernate;
 using NHibernate.Cfg;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
@@ -18,13 +17,12 @@ namespace Lesson06
 
         public static ISession GetSession()
         {
-            if (HttpContext.Current.Items["session"] == null)
+            if (ContextSession == null)
             {
-                HttpContext.Current.Items["session"] = 
-                    sessionFactory.OpenSession();
+                return (ContextSession = sessionFactory.OpenSession());
             }
 
-            return (ISession)HttpContext.Current.Items["session"];
+            return ContextSession;
         }
 
         protected void Application_Start()
@@ -33,6 +31,37 @@ namespace Lesson06
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             sessionFactory = GetSessionFactory();
+        }
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            var session = ContextSession;
+            if (session != null)
+            {
+                if (session.IsOpen)
+                {
+                    session.Close();
+                }
+
+                session.Dispose();
+            }
+        }
+
+        private static ISession ContextSession
+        {
+            get 
+            {
+                if (HttpContext.Current.Items["session"] != null)
+                {
+                    return (ISession)HttpContext.Current.Items["session"];
+                }
+
+                return null;
+            }
+            set 
+            {
+                HttpContext.Current.Items["session"] = value;
+            }
         }
 
         private ISessionFactory GetSessionFactory()
